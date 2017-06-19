@@ -13,6 +13,9 @@ import java.util.List;
 import static Game.Constant.*;
 import static Game.Enemy.addEnemy;
 import Game.buttons.PauseButton;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 import static Game.InformationPanel.timeline;
 
 public class GameField extends Pane {
@@ -24,6 +27,7 @@ public class GameField extends Pane {
     private double count = ENEMY_COUNT;
     private double speed = ENEMY_SPEED;
     private List<Enemy> enemies = new ArrayList<>();
+    public static MediaPlayer mediaPlayer;
 
 
     public GameField() {
@@ -37,6 +41,9 @@ public class GameField extends Pane {
         player.setTranslateX(GAMEFIELD_CENTER_X);
         player.setTranslateY(GAMEFIELD_CENTER_Y);
         pauseButton = new PauseButton(720, 540);
+
+
+
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -109,6 +116,7 @@ public class GameField extends Pane {
         if (getChildren().contains(player) && player.getBoundsInParent().intersects(enemy.getBoundsInParent())) {
             timer.stop();
             timeline.stop();
+            mediaPlayer.stop();
             Main.stage.setScene(new Scene(new GameOver(informationPanel.getScore()), WINDOW_WIDTH, WINDOW_HEIGHT));
         }
     }

@@ -27,7 +27,7 @@ public class InformationPanel extends Pane {
         bg.setTranslateY(GAME_PANEL_HEIGHT);
         score();
         getChildren().addAll(bg, score);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(500), event -> {
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), event -> {
             i++;
             score.setText("Score : " + i);
         });
@@ -37,7 +37,7 @@ public class InformationPanel extends Pane {
     }
 
     private void score() {
-        score = new Label("Score: ");
+        score = new Label("Score : 0");
         score.setFont(font);
         score.setTextFill(color);
         score.setTranslateX(250);
