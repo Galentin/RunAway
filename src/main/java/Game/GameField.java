@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static Game.Constant.*;
-import static Game.AddEnemy.addEnemy;
+import static Game.Enemy.addEnemy;
 import Game.buttons.PauseButton;
 import static Game.InformationPanel.timeline;
 
@@ -21,8 +21,8 @@ public class GameField extends Pane {
     private final InformationPanel informationPanel;
     private final PauseButton pauseButton;
     ImageView player = new ImageView(new Image("/player.png"));
-    private double count = ENEMY_INITIAL_COUNT;
-    private double speed = ENEMY_INITIAL_SPEED;
+    private double count = ENEMY_COUNT;
+    private double speed = ENEMY_SPEED;
     private List<Enemy> enemies = new ArrayList<>();
 
 
